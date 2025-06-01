@@ -10,13 +10,13 @@ import 'package:inventory_app/services/session_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SettingsTab extends StatefulWidget {
-  const SettingsTab({super.key});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
   @override
-  State<SettingsTab> createState() => _SettingsTabState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _SettingsTabState extends State<SettingsTab> {
+class _SettingsScreenState extends State<SettingsScreen> {
   List<DateTime> _tapTimes = [];
   Future<void> _changePasswordDialog(BuildContext context) async {
     final formKey = GlobalKey<FormState>();
@@ -264,7 +264,7 @@ class _SettingsTabState extends State<SettingsTab> {
     final currentLocale = Localizations.localeOf(context);
 
     return Container(
-      decoration: const BoxDecoration(),
+      color: Theme.of(context).canvasColor, // لون الخلفية من الثيم
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -274,7 +274,7 @@ class _SettingsTabState extends State<SettingsTab> {
               title: Text(t.settings),
               background: const SizedBox.shrink(),
             ),
-            //  backgroundColor: Colors.transparent,
+            //   backgroundColor: Colors.transparent,
           ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(4, 0, 4, 24),
@@ -462,8 +462,9 @@ class _SettingsTabState extends State<SettingsTab> {
       elevation: 3,
       //shadowColor: Colors.grey.withOpacity(0.2),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      color: Theme.of(context).focusColor,
       child: Padding(
-        padding: const EdgeInsets.only(top: 12),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 8,

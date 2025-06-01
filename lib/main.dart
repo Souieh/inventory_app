@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inventory_app/components/theme_provider.dart';
 import 'package:inventory_app/core/themes/dark_theme.dart';
 import 'package:inventory_app/core/themes/light_theme.dart';
@@ -75,7 +76,12 @@ class MyApp extends StatelessWidget {
             darkTheme: darkTheme,
 
             // Localization setup for intl
-            localizationsDelegates: const [S.delegate],
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
             supportedLocales: S.supportedLocales,
 
             // Automatically detect system locale

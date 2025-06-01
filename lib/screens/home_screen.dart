@@ -3,8 +3,8 @@ import 'package:inventory_app/components/agent_tab.dart';
 import 'package:inventory_app/components/articles_tab.dart';
 import 'package:inventory_app/components/dashboard_tab.dart';
 import 'package:inventory_app/components/locations_tab.dart';
-import 'package:inventory_app/components/settings_tab.dart';
 import 'package:inventory_app/localization/S.dart';
+import 'package:inventory_app/screens/settings_screen.dart';
 import 'package:inventory_app/services/session_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _tabController = TabController(
-      length: session.isAdmin ? 5 : 4,
+      length: session.isAdmin ? 4 : 3,
       vsync: this,
     );
   }
@@ -68,39 +68,54 @@ class _HomeScreenState extends State<HomeScreen>
         body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
+              // AppBar العلوي القابل للإخفاء
               SliverAppBar(
-                expandedHeight: 200,
                 floating: true,
-                pinned: true,
                 snap: true,
-                centerTitle: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  titlePadding: const EdgeInsets.only(bottom: 80, top: 60),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 8,
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 12,
-                        backgroundImage: AssetImage('assets/images/logo.png'),
-                      ),
-                      Text(' $userCode'),
+                pinned: false,
+                toolbarHeight:
+                    kToolbarHeight + MediaQuery.of(context).padding.top,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      spacing: 12,
+                      children: [
+                        CircleAvatar(
+                          radius: 12,
+                          backgroundImage: AssetImage('assets/images/logo.png'),
+                        ),
+                        Text(userCode),
+                      ],
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.menu),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => SettingsScreen()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              // TabBar المثبت دائمًا
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: _TabBarDelegate(
+                  TabBar(
+                    padding: EdgeInsets.only(top: 12),
+                    controller: _tabController,
+                    textScaler: TextScaler.linear(0.8),
+                    tabs: [
+                      Tab(text: t.dashboard, icon: Icon(Icons.dashboard)),
+                      Tab(text: t.articles, icon: Icon(Icons.inventory)),
+                      Tab(text: t.locations, icon: Icon(Icons.location_on)),
+                      if (session.isAdmin)
+                        Tab(text: t.agents, icon: Icon(Icons.group)),
                     ],
                   ),
-                  collapseMode: CollapseMode.parallax,
-                ),
-                bottom: TabBar(
-                  controller: _tabController,
-                  textScaler: TextScaler.linear(0.8),
-                  tabs: [
-                    Tab(text: t.dashboard, icon: Icon(Icons.dashboard)),
-                    Tab(text: t.articles, icon: Icon(Icons.inventory)),
-                    Tab(text: t.locations, icon: Icon(Icons.location_on)),
-                    if (session.isAdmin)
-                      Tab(text: t.agents, icon: Icon(Icons.group)),
-                    Tab(text: t.settings, icon: Icon(Icons.settings)),
-                  ],
                 ),
               ),
             ];
@@ -112,11 +127,38 @@ class _HomeScreenState extends State<HomeScreen>
               ArticlesTab(),
               LocationsTab(),
               if (session.isAdmin) AgentsTab(),
-              SettingsTab(),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class _TabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar _tabBar;
+
+  _TabBarDelegate(this._tabBar);
+
+  @override
+  double get minExtent => _tabBar.preferredSize.height;
+  @override
+  double get maxExtent => _tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return Container(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: _tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(covariant _TabBarDelegate oldDelegate) {
+    return false;
   }
 }
