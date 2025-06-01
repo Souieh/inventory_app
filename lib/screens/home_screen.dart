@@ -73,8 +73,6 @@ class _HomeScreenState extends State<HomeScreen>
                 floating: true,
                 snap: true,
                 pinned: false,
-                toolbarHeight:
-                    kToolbarHeight + MediaQuery.of(context).padding.top,
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
