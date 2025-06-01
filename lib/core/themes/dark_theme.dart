@@ -27,4 +27,5 @@ final ThemeData darkTheme = ThemeData(
       borderRadius: BorderRadius.circular(12),
     ),
   ),
+  cardColor: AppColors.darkSurface,
 );

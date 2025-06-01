@@ -906,6 +906,18 @@ abstract class S {
   /// In en, this message translates to:
   /// **'New Passkey'**
   String get new_passkey;
+
+  /// No description provided for @articlesStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles Status'**
+  String get articlesStatus;
+
+  /// No description provided for @articlesStatusChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles Status Chart'**
+  String get articlesStatusChart;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

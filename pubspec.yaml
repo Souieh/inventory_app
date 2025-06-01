@@ -28,6 +28,7 @@ dependencies:
   flutter_localization: ^0.3.2 
   intl: ^0.20.2
   url_launcher: ^6.3.1
+  pie_chart: ^5.4.0
 
 
 dev_dependencies:

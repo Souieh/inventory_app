@@ -264,7 +264,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final currentLocale = Localizations.localeOf(context);
 
     return Container(
-      color: Theme.of(context).canvasColor, // لون الخلفية من الثيم
+      color: Theme.of(context).scaffoldBackgroundColor, // لون الخلفية من الثيم
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -461,8 +461,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Card(
       elevation: 3,
       //shadowColor: Colors.grey.withOpacity(0.2),
+      color: Theme.of(context).cardColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Theme.of(context).focusColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Column(

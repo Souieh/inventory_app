@@ -255,50 +255,55 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     final t = S.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.all(24),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 24,
-          children: [
-            const CircleAvatar(
-              radius: 40,
-              backgroundImage: AssetImage('assets/images/logo.png'),
-            ),
-            Text(
-              t.user_auth,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            TextFormField(
-              controller: _codeController,
-              decoration: InputDecoration(labelText: t.user_code),
-              validator: (value) => value == null || value.isEmpty
-                  ? t.please_enter_your_code
-                  : null,
-            ),
-            TextFormField(
-              controller: _passwordController,
-              decoration: InputDecoration(labelText: t.password_optional),
-              obscureText: true,
-            ),
-            _loading
-                ? const Center(child: CircularProgressIndicator())
-                : SizedBox(
-                    width: double.infinity,
-                    child: FilledButton.icon(
-                      onPressed: _tryLogin,
-                      icon: const Icon(Icons.login),
-                      label: Text(t.login),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 24,
+            children: [
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage('assets/images/logo.png'),
+              ),
+              Text(
+                t.user_auth,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextFormField(
+                controller: _codeController,
+                decoration: InputDecoration(labelText: t.user_code),
+                validator: (value) => value == null || value.isEmpty
+                    ? t.please_enter_your_code
+                    : null,
+              ),
+              TextFormField(
+                controller: _passwordController,
+                decoration: InputDecoration(labelText: t.password_optional),
+                obscureText: true,
+              ),
+              _loading
+                  ? const Center(child: CircularProgressIndicator())
+                  : SizedBox(
+                      width: double.infinity,
+                      child: FilledButton.icon(
+                        onPressed: _tryLogin,
+                        icon: const Icon(Icons.login),
+                        label: Text(t.login),
+                      ),
                     ),
-                  ),
-            ListTile(
-              leading: const Icon(Icons.delete_forever, color: Colors.red),
-              title: Text(t.reset_db),
-              onTap: () => _confirmResetDB(context),
-            ),
-          ],
+              ListTile(
+                leading: const Icon(Icons.delete_forever, color: Colors.red),
+                title: Text(t.reset_db),
+                onTap: () => _confirmResetDB(context),
+              ),
+            ],
+          ),
         ),
       ),
     );

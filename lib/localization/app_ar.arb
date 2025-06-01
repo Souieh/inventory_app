@@ -140,5 +140,7 @@
   "disable_dev_mode_confirm": "هل أنت متأكد أنك تريد تعطيل وضع المطور؟ لا يمكن التراجع عن هذا الإجراء.",
   "passkey_changed_success": "تم تغيير مفتاح المرور بنجاح",
   "passkey_validation": "يجب أن يكون مفتاح المرور 4 أحرف على الأقل",
-  "new_passkey": "مفتاح مرور جديد"
+  "new_passkey": "مفتاح مرور جديد",
+  "articlesStatus": "حالة المقالات",
+  "articlesStatusChart": "حالة المقالات"
 }

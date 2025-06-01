@@ -434,6 +434,7 @@ class DBHelper {
   // ... الكود السابق ...
 
   Future<void> generateDummyData() async {
+    final admins = await getUsers(role: 'admin');
     await clearDatabase();
 
     final random = Random();
@@ -449,15 +450,7 @@ class DBHelper {
       await insertUser(agent);
     }
     // creating admin :
-    await insertUser(
-      User(
-        code: 'admin',
-        name: 'Administrator',
-        description: 'Main administrator',
-        password: 'admin',
-        role: 'admin',
-      ),
-    );
+    if (admins.isNotEmpty) await insertUser(admins[0]);
     // توليد 10 مواقع (locations) عامة - ليتم مشاركتها بين الوكلاء
 
     // سنوزع المواقع على الوكلاء - كل وكيل يملك 10 مواقع (يمكن مشاركة المواقع بين وكلاء)
@@ -489,7 +482,13 @@ class DBHelper {
         name: 'Article $i at ${loc.name}',
         quantity: random.nextInt(50) + 1,
         description: 'Description of article $i at ${loc.name}',
-        condition: (random.nextBool()) ? 'New' : 'Used',
+        condition: [
+          'New',
+          'Good',
+          'Working',
+          'Needs Repair',
+          'Broken',
+        ][random.nextInt(5)],
         category: 'Category ${(i % 5) + 1}',
         location: loc.code,
         agentCode: loc.agentCode,

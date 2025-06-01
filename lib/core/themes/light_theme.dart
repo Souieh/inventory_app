@@ -27,4 +27,5 @@ final ThemeData lightTheme = ThemeData(
       borderRadius: BorderRadius.circular(12),
     ),
   ),
+  cardColor: AppColors.lightSurface,
 );

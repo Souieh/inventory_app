@@ -418,4 +418,10 @@ class SEn extends S {
 
   @override
   String get new_passkey => 'New Passkey';
+
+  @override
+  String get articlesStatus => 'Articles Status';
+
+  @override
+  String get articlesStatusChart => 'Articles Status Chart';
 }

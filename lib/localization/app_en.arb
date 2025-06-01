@@ -148,5 +148,7 @@
   "disable_dev_mode_confirm": "Are you sure you want to disable developer mode? This action cannot be undone.",
   "passkey_changed_success": "Passkey changed successfully",
   "passkey_validation": "Passkey is required",
-  "new_passkey": "New Passkey"
+  "new_passkey": "New Passkey",
+  "articlesStatus": "Articles Status",
+  "articlesStatusChart": "Articles Status Chart"
 }

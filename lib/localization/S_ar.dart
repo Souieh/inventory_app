@@ -417,4 +417,10 @@ class SAr extends S {
 
   @override
   String get new_passkey => 'مفتاح مرور جديد';
+
+  @override
+  String get articlesStatus => 'حالة المقالات';
+
+  @override
+  String get articlesStatusChart => 'حالة المقالات';
 }

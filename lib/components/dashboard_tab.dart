@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_app/components/piechart_articles.dart';
 import 'package:inventory_app/localization/S.dart';
 import 'package:inventory_app/services/db_helper.dart';
 import 'package:inventory_app/services/session_manager.dart';
@@ -68,22 +69,12 @@ class _DashboardTabState extends State<DashboardTab> {
         borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(icon, size: 40, color: Colors.blue),
-              const SizedBox(width: 20),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  spacing: 16,
-                  children: [
-                    Text(title),
-                    Text('$count', style: const TextStyle(fontSize: 32)),
-                  ],
-                ),
-              ),
-              const Icon(Icons.arrow_forward_ios, size: 16),
+              Icon(icon, size: 40),
+              Text('$count', style: const TextStyle(fontSize: 40)),
+              Text(title),
             ],
           ),
         ),
@@ -96,31 +87,48 @@ class _DashboardTabState extends State<DashboardTab> {
     final t = S.of(context);
     return _loading
         ? const Center(child: CircularProgressIndicator())
-        : Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              spacing: 12,
-              children: [
-                _buildCard(
-                  icon: Icons.inventory_2_outlined,
-                  title: t.articles,
-                  count: _articleCount,
-                  onTap: () => widget.tabController.animateTo(1),
-                ),
-                _buildCard(
-                  icon: Icons.location_on_outlined,
-                  title: t.locations,
-                  count: _locationCount,
-                  onTap: () => widget.tabController.animateTo(2),
-                ),
-                if (session.isAdmin)
-                  _buildCard(
-                    icon: Icons.person_outline,
-                    title: t.agents,
-                    count: _agentCount,
-                    onTap: () => widget.tabController.animateTo(3),
+        : SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                spacing: 12,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: _buildCard(
+                            icon: Icons.location_on_outlined,
+                            title: t.locations,
+                            count: _locationCount,
+                            onTap: () => widget.tabController.animateTo(2),
+                          ),
+                        ),
+                        if (session.isAdmin)
+                          Expanded(
+                            child: _buildCard(
+                              icon: Icons.person_outline,
+                              title: t.agents,
+                              count: _agentCount,
+                              onTap: () => widget.tabController.animateTo(3),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
-              ],
+                  _buildCard(
+                    icon: Icons.article_outlined,
+                    title: t.articles,
+                    count: _articleCount,
+                    onTap: () => widget.tabController.animateTo(1),
+                  ),
+                  PieChartArticles(),
+                ],
+              ),
             ),
           );
   }
