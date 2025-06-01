@@ -85,7 +85,7 @@ class _ArticlesTabState extends State<ArticlesTab> {
                 t.noArticlesFound,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              ElevatedButton.icon(
+              FilledButton.icon(
                 onPressed: _goToAddScreen,
                 icon: const Icon(Icons.barcode_reader),
                 label: Text(t.addArticle),
@@ -110,37 +110,21 @@ class _ArticlesTabState extends State<ArticlesTab> {
                         ),
                       ),
                       // زر الريفريش   وصغير الحجم
-                      ElevatedButton.icon(
+                      TextButton.icon(
                         onPressed: () {
                           _fetchArticles(reset: true);
                         },
                         icon: const Icon(Icons.refresh, size: 18),
                         label: Text(t.refresh, style: TextStyle(fontSize: 12)),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
                       ),
 
                       // زر المسح مع نص وحجم أصغر
-                      ElevatedButton.icon(
+                      FilledButton.icon(
                         onPressed: _goToAddScreen,
                         icon: const Icon(Icons.barcode_reader, size: 18),
                         label: Text(
                           t.addArticle,
                           style: TextStyle(fontSize: 12),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       ),
                     ],

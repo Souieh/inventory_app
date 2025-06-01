@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inventory_app/components/theme_provider.dart';
+import 'package:inventory_app/core/themes/dark_theme.dart';
+import 'package:inventory_app/core/themes/light_theme.dart';
 import 'package:inventory_app/localization/S.dart';
 import 'package:inventory_app/providers/dev_mode_provider.dart';
 import 'package:inventory_app/screens/auth_screen.dart';
@@ -70,28 +71,11 @@ class MyApp extends StatelessWidget {
             title: 'Inventory App',
             themeMode: themeProvider.themeMode,
             locale: localeProvider.locale, // ✅ هنا
-            theme: ThemeData(
-              useMaterial3: true,
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: Colors.lightBlue,
-                brightness: Brightness.light,
-              ),
-            ),
-            darkTheme: ThemeData(
-              useMaterial3: true,
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: Colors.lightBlue,
-                brightness: Brightness.dark,
-              ),
-            ),
+            theme: lightTheme,
+            darkTheme: darkTheme,
 
             // Localization setup for intl
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
+            localizationsDelegates: const [S.delegate],
             supportedLocales: S.supportedLocales,
 
             // Automatically detect system locale

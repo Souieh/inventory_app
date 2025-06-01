@@ -85,7 +85,7 @@ class _LocationsTabState extends State<LocationsTab> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
-              ElevatedButton.icon(
+              FilledButton.icon(
                 onPressed: _goToAddScreen,
                 icon: const Icon(Icons.barcode_reader),
                 label: Text(t.addLocation),
@@ -109,34 +109,18 @@ class _LocationsTabState extends State<LocationsTab> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      ElevatedButton.icon(
+                      TextButton.icon(
                         onPressed: () {
                           _fetchLocations(reset: true);
                         },
                         icon: const Icon(Icons.refresh, size: 18),
                         label: Text(t.refresh),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
                       ),
                       // زر المسح مع نص وحجم أصغر
-                      ElevatedButton.icon(
+                      FilledButton.icon(
                         onPressed: _goToAddScreen,
                         icon: const Icon(Icons.barcode_reader, size: 18),
                         label: Text(t.addLocation),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
                       ),
                     ],
                   ),

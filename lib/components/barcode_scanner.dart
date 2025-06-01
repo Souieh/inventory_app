@@ -23,7 +23,7 @@ class BarcodeScannerScreen extends StatelessWidget {
                 'Barcode scanning is not supported on this platform.',
                 textAlign: TextAlign.center,
               ),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () => Navigator.of(context).pop(),
                 child: const Text('Back'),
               ),

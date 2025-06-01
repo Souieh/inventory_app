@@ -92,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 bottom: TabBar(
                   controller: _tabController,
+                  textScaler: TextScaler.linear(0.8),
                   tabs: [
                     Tab(text: t.dashboard, icon: Icon(Icons.dashboard)),
                     Tab(text: t.articles, icon: Icon(Icons.inventory)),

@@ -148,7 +148,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
             _loading
                 ? const CircularProgressIndicator()
-                : ElevatedButton(
+                : FilledButton(
                     onPressed: _trySignUp,
                     child: Text(t.create_user),
                   ),
@@ -231,9 +231,9 @@ class _LoginWidgetState extends State<LoginWidget> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: Text(t.reset),
           ),
         ],
@@ -287,7 +287,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ? const Center(child: CircularProgressIndicator())
                 : SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton.icon(
+                    child: FilledButton.icon(
                       onPressed: _tryLogin,
                       icon: const Icon(Icons.login),
                       label: Text(t.login),

@@ -129,7 +129,7 @@ class _AgentAddScreenState extends State<AgentAddScreen> {
                 const SizedBox(height: 20),
                 _isSaving
                     ? const CircularProgressIndicator()
-                    : ElevatedButton.icon(
+                    : FilledButton.icon(
                         onPressed: _saveAgent,
                         icon: const Icon(Icons.save),
                         label: Text(t.save_agent),

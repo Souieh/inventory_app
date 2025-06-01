@@ -77,7 +77,7 @@ class _AgentsTabState extends State<AgentsTab> {
                 ),
               ),
               const SizedBox(height: 16),
-              ElevatedButton.icon(
+              FilledButton.icon(
                 onPressed: _goToAddScreen,
                 icon: const Icon(Icons.person_add_alt),
                 label: Text(t.addAgent),
@@ -102,35 +102,19 @@ class _AgentsTabState extends State<AgentsTab> {
                         ),
                       ),
                       // زر الريفريش   وصغير الحجم
-                      ElevatedButton.icon(
+                      TextButton.icon(
                         onPressed: () {
                           _fetchAgents(reset: true);
                         },
                         icon: const Icon(Icons.refresh, size: 18),
                         label: Text(t.refresh, style: TextStyle(fontSize: 12)),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
                       ),
 
                       // زر المسح مع نص وحجم أصغر
-                      ElevatedButton.icon(
+                      FilledButton.icon(
                         onPressed: _goToAddScreen,
                         icon: const Icon(Icons.person_add_alt, size: 18),
                         label: Text(t.addAgent, style: TextStyle(fontSize: 12)),
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          minimumSize: Size.zero, // يقلل الحجم الافتراضي
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
                       ),
                     ],
                   ),

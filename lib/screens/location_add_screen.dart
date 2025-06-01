@@ -168,7 +168,7 @@ class _LocationAddScreenState extends State<LocationAddScreen> {
                   maxLines: 2,
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton.icon(
+                FilledButton.icon(
                   onPressed: _saveLocation,
                   icon: const Icon(Icons.save),
                   label: Text(s.save_location),

@@ -42,7 +42,7 @@ class _VersionTapState extends State<VersionTap> {
             onPressed: () => Navigator.pop(context),
             child: const Text('إلغاء'),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () {
               context.read<DevModeProvider>().enable(controller.text);
               Navigator.pop(context);

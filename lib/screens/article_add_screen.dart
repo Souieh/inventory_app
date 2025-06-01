@@ -269,7 +269,7 @@ class _ArticleAddScreenState extends State<ArticleAddScreen> {
                         maxLines: 2,
                       ),
                       const SizedBox(height: 20),
-                      ElevatedButton.icon(
+                      FilledButton.icon(
                         onPressed: _saveArticle,
                         icon: const Icon(Icons.save),
                         label: Text(t.save_article),

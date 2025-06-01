@@ -466,11 +466,11 @@ class DBHelper {
       final agents = await getUsers(role: 'agent');
       // أنشئ نسخة من الموقع مع إضافة agentCode الحالي
       Location newLoc = Location(
-        code: 'loc${i}',
-        name: 'Location ${i}',
-        occupation: 'Occupation ${i}',
-        type: 'Type ${i}',
-        description: 'Description for location ${i}',
+        code: 'loc$i',
+        name: 'Location $i',
+        occupation: 'Occupation $i',
+        type: 'Type $i',
+        description: 'Description for location $i',
         agentCode: agents[random.nextInt(agents.length)].code,
         createdAt: DateTime.now().toIso8601String(),
         updatedAt: DateTime.now().toIso8601String(),

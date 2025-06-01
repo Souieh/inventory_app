@@ -46,7 +46,7 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () async {
               if (formKey.currentState?.validate() == true) {
                 final session = context.read<SessionManager>();
@@ -84,9 +84,9 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: Text(t.reset),
           ),
         ],
@@ -135,7 +135,7 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () => Navigator.pop(context, true),
             child: Text(t.logout),
           ),
@@ -204,7 +204,7 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () {
               if (formKey.currentState?.validate() ?? false) {
                 Navigator.pop(context, true);
@@ -238,7 +238,7 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context, false),
             child: Text(t.cancel),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () => Navigator.pop(context, true),
             child: Text(t.disable),
           ),
@@ -506,7 +506,7 @@ class _SettingsTabState extends State<SettingsTab> {
             onPressed: () => Navigator.pop(context),
             child: const Text('إلغاء'),
           ),
-          ElevatedButton(
+          FilledButton(
             onPressed: () {
               context.read<DevModeProvider>().enable(controller.text);
               Navigator.pop(context);
