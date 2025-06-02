@@ -11,7 +11,9 @@ environment:
  
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: flutter 
+  flutter_localizations:
+    sdk: flutte
   cupertino_icons: ^1.0.8
   path_provider: ^2.0.14
   path: ^1.8.0

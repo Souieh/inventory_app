@@ -136,16 +136,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Text(t.cancel),
           ),
           FilledButton(
-            onPressed: () => Navigator.pop(context, true),
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
             child: Text(t.logout),
           ),
         ],
       ),
     );
-
     if (confirm == true) {
       if (context.mounted) {
         await context.read<SessionManager>().logout();
+
+        // اغلق جميع الشاشات وارجع إلى الشاشة الرئيسية
+        Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
       }
     }
   }
@@ -414,12 +418,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ListTile(
                       leading: const Icon(Icons.info_outline),
                       title: Text(t.app_name),
-                      subtitle: const Text('Inventory Tracker'),
+                      subtitle: const Text('Inventory Tracker @ 2025'),
                     ),
                     ListTile(
                       leading: const Icon(Icons.update),
                       title: Text(t.version),
-                      subtitle: const Text('v1.0.0'),
+                      subtitle: const Text('v1.1'),
                       onTap: () => handleDevTap(context),
                     ),
                     ListTile(

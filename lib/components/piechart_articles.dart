@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 enum LegendShape { circle, rectangle }
 
 class PieChartArticles extends StatefulWidget {
-  const PieChartArticles({Key? key}) : super(key: key);
+  const PieChartArticles({super.key});
 
   @override
   PieChartArticlesState createState() => PieChartArticlesState();

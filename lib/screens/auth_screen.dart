@@ -99,7 +99,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       name: 'Administrator',
       role: 'admin',
     );
-
     try {
       await DBHelper().insertUser(newUser);
       _showMessage(S.of(context).user_created_success);
@@ -261,9 +260,12 @@ class _LoginWidgetState extends State<LoginWidget> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             spacing: 24,
             children: [
+              const SizedBox(height: 24),
               const CircleAvatar(
                 radius: 40,
                 backgroundImage: AssetImage('assets/images/logo.png'),

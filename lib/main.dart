@@ -32,13 +32,10 @@ void main() async {
     if (kReleaseMode) exit(1);
   };
 
-  final session = SessionManager();
-  await session.tryAutoLogin();
-
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => session),
+        ChangeNotifierProvider(create: (_) => SessionManager()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
         ChangeNotifierProvider(create: (_) => DevModeProvider()),

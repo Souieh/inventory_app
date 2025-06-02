@@ -103,9 +103,10 @@ class _HomeScreenState extends State<HomeScreen>
                 pinned: true,
                 delegate: _TabBarDelegate(
                   TabBar(
-                    padding: EdgeInsets.only(top: 12),
+                    padding: EdgeInsets.only(top: 24),
                     controller: _tabController,
                     textScaler: TextScaler.linear(0.8),
+
                     tabs: [
                       Tab(text: t.dashboard, icon: Icon(Icons.dashboard)),
                       Tab(text: t.articles, icon: Icon(Icons.inventory)),
