@@ -3,6 +3,7 @@ import 'package:inventory_app/core/themes/color.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
+  useMaterial3: true,
   primaryColor: AppColors.primary,
   scaffoldBackgroundColor: AppColors.darkBackground,
   appBarTheme: const AppBarTheme(

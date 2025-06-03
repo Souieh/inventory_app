@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inventory_app/core/themes/color.dart';
 
 final ThemeData lightTheme = ThemeData(
+  useMaterial3: true,
   brightness: Brightness.light,
   primaryColor: AppColors.primary,
   scaffoldBackgroundColor: AppColors.lightBackground,

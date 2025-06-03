@@ -9,7 +9,6 @@ class BarcodeScannerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ✅ safer check in release & all platforms
     if (defaultTargetPlatform == TargetPlatform.linux ||
         defaultTargetPlatform == TargetPlatform.windows ||
         defaultTargetPlatform == TargetPlatform.macOS) {
@@ -38,7 +37,8 @@ class BarcodeScannerScreen extends StatelessWidget {
       body: SizedBox.expand(
         child: MobileScanner(
           onDetect: (barcode) {
-            final String code = barcode.barcodes.firstOrNull?.rawValue ?? '';
+            final String code =
+                barcode.barcodes.firstOrNull?.rawValue ?? '(Uknown code)';
             onScanned(code);
             Navigator.of(context).pop();
           },

@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  dynamic_color
   file_saver
   flutter_localization
   url_launcher_windows
