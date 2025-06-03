@@ -1,16 +1,89 @@
-# inventory_app
+Inventory App
 
-A new Flutter project.
+A simple and efficient Flutter-based inventory management application.  
+Supports both **Arabic and English**, and works seamlessly across **all major platforms** including Android, iOS, Linux, Windows, and macOS.
 
-## Getting Started
+## 🌍 Languages
 
-This project is a starting point for a Flutter application.
+- 🇸🇦 Arabic (العربية)
+- 🇬🇧 English
 
-A few resources to get you started if this is your first Flutter project:
+## 🖥️ Platform Compatibility
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Platform | Supported |
+| -------- | --------- |
+| Android  | ✅        |
+| iOS      | ✅        |
+| Linux    | ✅        |
+| Windows  | ✅        |
+| macOS    | ✅        |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Features
+
+- Agent authentication and management
+- Scan and track locations and articles using QR codes
+- Offline support with local SQLite database
+- Export inventory data to Excel files
+- Developer mode (activated by tapping app version multiple times)
+- Dual-language support (AR/EN)
+- Beautiful and responsive UI
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK ^3.8.0
+- Dart SDK compatible with Flutter 3.8
+
+### Installation
+
+```bash
+flutter pub get
+flutter run
+
+```
+
+### 🧰 Dependencies Overview
+
+| Package                     | Purpose                           |
+| --------------------------- | --------------------------------- |
+| provider                    | State management                  |
+| sqflite                     | Local database                    |
+| path_provider               | File system paths                 |
+| qr_code_scanner_plus        | QR code scanning                  |
+| shared_preferences          | Local key-value storage           |
+| file_picker                 | Picking files                     |
+| file_saver                  | Saving files                      |
+| excel                       | Exporting data                    |
+| intl & flutter_localization | Multilingual support              |
+| mobile_scanner              | High-performance barcode scanning |
+| pie_chart                   | Visual statistics                 |
+| url_launcher                | Open URLs                         |
+
+### 🧪 Testing
+
+```bash
+flutter test
+```
+
+### 🔧 Developer Mode
+
+- Tap 7 times on the app version in settings/about within 10 seconds.
+- Prompts for developer key.
+- Unlocks debug/developer tools.
+
+### 🖼️ Assets
+
+assets/images/logo.png – App icon
+
+assets/images/ – App images
+
+### 📦 Build App Icons
+
+```bash
+flutter pub run flutter_launcher_icons
+```
+
+## 🔒 License
+
+This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
